@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student ERP System</title>
+
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="logo">
+      <h1><i class="fas fa-graduation-cap"></i> Edu<span>ERP</span></h1>
+    </div>
+    <ul class="menu">
+      <li class="active"><i class="fas fa-home"></i> Dashboard</li>
+      <li><i class="fas fa-user-graduate"></i> Students</li>
+      <li><i class="fas fa-money-bill-wave"></i> Fees</li>
+      <li><i class="fas fa-bed"></i> Hostel</li>
+      <li><i class="fas fa-book"></i> Academics</li>
+      <li><i class="fas fa-clipboard-list"></i> Exams</li>
+      <li><i class="fas fa-chart-bar"></i> Reports</li>
+      <li><i class="fas fa-cog"></i> Settings</li>
+    </ul>
+    <div class="profile">
+      <div class="profile-img">AD</div>
+      <div class="profile-info">
+        <h4>Admin User</h4>
+        <p>Administrator</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search...">
+      </div>
+      <div class="user-actions">
+        <div class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </div>
+        <div class="user">
+          <i class="fas fa-user-circle"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <div class="dashboard-title">
+        <h2>Dashboard Overview</h2>
+        <button class="btn-download">
+          <i class="fas fa-download"></i> Generate Report
+        </button>
+      </div>
+
+      <!-- Statistics Cards -->
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="icon students-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <h3>2,458</h3>
+            <p>Total Students</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="icon fees-icon">
+            <i class="fas fa-money-bill"></i>
+          </div>
+          <div class="stat-info">
+            <h3>₹8,42,500</h3>
+            <p>Fees Collected</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="icon hostel-icon">
+            <i class="fas fa-bed"></i>
+          </div>
+          <div class="stat-info">
+            <h3>85%</h3>
+            <p>Hostel Occupancy</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="icon exam-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="stat-info">
+            <h3>92%</h3>
+            <p>Exam Pass Rate</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-container">
+        <div class="chart-card">
+          <div class="chart-title">
+            <h3>Admissions Overview</h3>
+            <select>
+              <option>Last 7 Days</option>
+              <option>Last 30 Days</option>
+              <option>Last 90 Days</option>
+            </select>
+          </div>
+          <canvas id="admissionsChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">
+            <h3>Fee Collection</h3>
+            <select>
+              <option>2023-2024</option>
+              <option>2022-2023</option>
+            </select>
+          </div>
+          <canvas id="feeChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="recent-activity">
+        <div class="chart-title">
+          <h3>Recent Activity</h3>
+          <button class="btn-view">
+            View All <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <div class="activity-icon success">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="activity-details">
+              <p><strong>New student registered</strong> - Rahul Sharma (CS-42)</p>
+              <span class="activity-time">2 hours ago</span>
+            </div>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon info">
+              <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="activity-details">
+              <p><strong>Fee received</strong> - Priya Singh paid ₹42,500</p>
+              <span class="activity-time">5 hours ago</span>
+            </div>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon warning">
+              <i class="fas fa-bed"></i>
+            </div>
+            <div class="activity-details">
+              <p><strong>Hostel room allocated</strong> - Room B-204 to Amit Kumar</p>
+              <span class="activity-time">Yesterday</span>
+            </div>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon primary">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div class="activity-details">
+              <p><strong>Exam results published</strong> - Semester 4 Results</p>
+              <span class="activity-time">2 days ago</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
